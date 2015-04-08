@@ -1,6 +1,7 @@
 nTwitter = require "ntwitter"
+http = require "http"
+
 Reward = require "./reward"
-Hero = require "./hero"
 
 options =
   twitter:
@@ -32,3 +33,6 @@ reconnect = ->
   setTimeout 1000, listen
 
 listen()
+
+http.createServer((request, response) ->)
+  .listen(process.env.PORT || 5000)
