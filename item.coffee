@@ -31,7 +31,7 @@ class Weapon extends Item
     @adjective = ["Broken", "Rusty", "Crude", "Simple", "Handy", "Quality", "Masterful", "Bejeweled", "Legendary", "Lost"][@fiddle(level)]
     @noun = pick ["Sword", "Axe", "Dagger", "Knife", "Halberd", "Longsword", "Broadsword", "Short Sword"]
     @qualifier = if Math.random() < 0.3
-      " of " + pick ["Disemboweling", "Productivity", "Luck", "the Beast", "the Abyss", "the Ages", "Harsh Language"]
+      " of " + pick ["Disembowelling", "Productivity", "Luck", "the Beast", "the Abyss", "the Ages", "Harsh Language"]
     else
       ""
 

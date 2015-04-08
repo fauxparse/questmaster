@@ -6,7 +6,7 @@ class Reward
   constructor: (tweet) ->
     @tweet = tweet
     @hero = new Hero tweet.user
-    @body = @tweet.text.replace /^\@[^\s]+\s*/, ""
+    @body = @tweet.text.replace /^[\.\s]*\@[^\s]+\s*/, ""
     console.log "#{@hero.name} completed a quest: #{@body}"
 
   toString: ->
