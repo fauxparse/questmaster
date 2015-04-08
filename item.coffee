@@ -9,7 +9,7 @@ class Item
 
   emoji: -> emoji.get("package")
   description: -> "Mysterious box"
-  toString: -> "#{@emoji()}  #{@description()}"
+  toString: -> "#{@emoji()} #{@description()}"
   @chance: -> 1
 
   fiddle: (level) ->
@@ -27,11 +27,11 @@ class Item
 class Weapon extends Item
   constructor: (level) ->
     super
-    @bonus = if Math.random() > 0.95 then "+1 " else ""
+    @bonus = if Math.random() < 0.1 then "+1 " else ""
     @adjective = ["Broken", "Rusty", "Crude", "Simple", "Handy", "Quality", "Masterful", "Bejeweled", "Legendary", "Lost"][@fiddle(level)]
     @noun = pick ["Sword", "Axe", "Dagger", "Knife", "Halberd", "Longsword", "Broadsword", "Short Sword"]
-    @qualifier = if Math.random() < 0.3
-      " of " + pick ["Disembowelling", "Productivity", "Luck", "the Beast", "the Abyss", "the Ages", "Harsh Language"]
+    @qualifier = if Math.random() < 0.5
+      " of " + pick ["Disembowelling", "Productivity", "Luck", "the Beast", "the Abyss", "the Ages", "Harsh Language", "Biting", "Manners", "Farts", "Time"]
     else
       ""
 
@@ -39,7 +39,7 @@ class Weapon extends Item
   description: ->
     "#{@adjective} #{@noun}#{@qualifier}"
 
-  @chance: (level) -> level
+  @chance: (level) -> level + 1
 
 class Consumable extends Item
 
@@ -69,17 +69,17 @@ class Potion extends Consumable
 class Treasure extends Item
   constructor: (level) ->
     super
-    @descriptor = if Math.random() < 0.4
+    @descriptor = if Math.random() < 0.5
       pick(["Small", "Large", "Mysterious", "Depleted", "Interesting", "Curious"]) + " "
     else
       ""
-    @container = pick ["Box", "Jar", "Tube", "Bottle", "Assortment", "Pouch", "Purse"]
-    @contents = pick ["Spiders", "Mysteries", "Shadows", "Gemstones", "Wood Shavings", "Teeth", "Regrets", "Sandwiches", "Goblin Pubes", "Buttons", "Boiled Sweets", "Coloured Sand", "Marbles", "Lint", "Dried Peas", "Bath Salts", "Bees", "Chickpeas", "Carved Figures", "Knucklebones", "Leather Scraps", "Rubies", "Emeralds", "Pretzels"]
+    @container = pick ["Box", "Jar", "Tube", "Bottle", "Assortment", "Pouch", "Purse", "Bag"]
+    @contents = pick ["Spiders", "Mysteries", "Shadows", "Gemstones", "Wood Shavings", "Teeth", "Regrets", "Sandwiches", "Goblin Pubes", "Buttons", "Boiled Sweets", "Coloured Sand", "Marbles", "Lint", "Dried Peas", "Bath Salts", "Bees", "Chickpeas", "Carved Figures", "Knucklebones", "Leather Scraps", "Rubies", "Emeralds", "Pretzels", "Crayons", "Herbs"]
 
   description: ->
     "#{@descriptor}#{@container} of #{@contents}"
 
-  @chance: (level) -> 2
+  @chance: (level) -> level * 2 + 1
 
 Weapon.all = [Weapon]
 Consumable.all = [Bread, Ale, Apple, Potion]

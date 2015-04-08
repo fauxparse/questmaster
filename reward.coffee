@@ -18,7 +18,7 @@ class Reward
 
   xp: ->
     xp = @body.length * 10 * @hero.level
-    "#{emoji.get("star")}  #{xp} XP"
+    "#{emoji.get("star")} #{xp} XP"
 
   gold: ->
     longest = 0
@@ -28,7 +28,7 @@ class Reward
       coins += word.length * word.length * 5
     complexity = Math.max(0, Math.min(3, Math.floor(longest / 2) - 4))
     coinage = ["CP", "SP", "GP", "PP"][complexity]
-    "#{emoji.get("moneybag")}  #{coins} #{coinage}"
+    "#{emoji.get("moneybag")} #{coins} #{coinage}"
 
   item: ->
     Item.random(@hero.level).toString()
