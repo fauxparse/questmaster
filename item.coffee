@@ -74,7 +74,7 @@ class Treasure extends Item
     else
       ""
     @container = pick ["Box", "Jar", "Tube", "Bottle", "Assortment", "Pouch", "Purse"]
-    @contents = pick ["Spiders", "Mysteries", "Shadows", "Gemstones", "Wood Shavings", "Teeth", "Regrets", "Sandwiches", "Goblin Pubes", "Buttons", "Boiled Sweets", "Coloured Sand", "Marbles", "Lint", "Dried Peas", "Bath Salts"]
+    @contents = pick ["Spiders", "Mysteries", "Shadows", "Gemstones", "Wood Shavings", "Teeth", "Regrets", "Sandwiches", "Goblin Pubes", "Buttons", "Boiled Sweets", "Coloured Sand", "Marbles", "Lint", "Dried Peas", "Bath Salts", "Bees", "Chickpeas", "Carved Figures", "Knucklebones", "Leather Scraps", "Rubies", "Emeralds", "Pretzels"]
 
   description: ->
     "#{@descriptor}#{@container} of #{@contents}"
