@@ -21,8 +21,7 @@ class Item
       if chance = klass.chance(level)
         for i in [1..chance]
           items.push new klass(level)
-    i = Math.floor(Math.random() * items.length)
-    items[i]
+    pick items
 
 class Weapon extends Item
   constructor: (level) ->

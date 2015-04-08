@@ -28,6 +28,9 @@ listen = ->
         reward = new Reward data
         id = data.id_str
         twitter.updateStatus reward.toString(), in_reply_to_status_id: id, ->
+      else
+        console.log "Rejected a tweet:"
+        console.log data
 
     stream.on "end", reconnect
     stream.on "destroy", reconnect
