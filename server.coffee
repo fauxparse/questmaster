@@ -14,13 +14,17 @@ options =
 twitter = new nTwitter options.twitter
 
 listen = ->
+  me = options.twitter.username
+
   twitter.verifyCredentials (err, data) ->
     err && console.log "Bad Twitter credentials."
-  .stream "user", { track: options.twitter.username }, (stream) ->
-    console.log "Listening for tweets to @#{options.twitter.username}…"
+  .stream "user", { track: me }, (stream) ->
+    console.log "Listening for tweets to @#{me}…"
+
+    filter = new RegExp("^[\\.\\s]*@#{me}")
 
     stream.on "data", (data) ->
-      if data.user? && data.in_reply_to_screen_name == options.twitter.username
+      if data.user? && filter.test(data.text)
         reward = new Reward data
         id = data.id_str
         twitter.updateStatus reward.toString(), in_reply_to_status_id: id, ->
