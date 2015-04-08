@@ -24,7 +24,7 @@ listen = ->
     filter = new RegExp("^[\\.\\s]*@#{me}")
 
     stream.on "data", (data) ->
-      if data.user? && filter.test(data.text)
+      if data.user? && filter.test(data.text) && !data.in_reply_to_status_id?
         reward = new Reward data
         id = data.id_str
         twitter.updateStatus reward.toString(), in_reply_to_status_id: id, ->
