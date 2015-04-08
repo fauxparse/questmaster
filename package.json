@@ -1,0 +1,19 @@
+{
+  "name": "questmaster",
+  "version": "1.0.0",
+  "description": "Twitter bot to reward quest completion",
+  "main": "server.coffee",
+  "dependencies": {
+    "node-emoji": "^0.1.0",
+    "ntwitter": "^0.5.0",
+    "coffee-script": "^1.9.1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Powell",
+  "license": "ISC"
+}
