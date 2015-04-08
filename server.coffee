@@ -21,7 +21,7 @@ listen = ->
   .stream "user", { track: me }, (stream) ->
     console.log "Listening for tweets to @#{me}…"
 
-    filter = new RegExp("^[\\.\\s]*@#{me}")
+    filter = new RegExp("^[\\.\\s]*@#{me}", "i")
 
     stream.on "data", (data) ->
       if data.user? && filter.test(data.text) && !data.in_reply_to_status_id?
