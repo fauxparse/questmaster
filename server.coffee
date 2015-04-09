@@ -37,9 +37,15 @@ listen = ->
 
 reconnect = ->
   console.log "Reconnecting…"
-  setTimeout 1000, listen
+  setTimeout listen, 1000
 
 listen()
 
-http.createServer((request, response) ->)
-  .listen(process.env.PORT || 5000)
+http.createServer (request, response) ->
+  response.write "No quests await you here"
+  response.end()
+.listen(process.env.PORT || 5000)
+
+setInterval ->
+  http.get "http://questmaster.herokuapp.com"
+, 300000
