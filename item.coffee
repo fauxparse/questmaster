@@ -27,10 +27,10 @@ class Weapon extends Item
   constructor: (level) ->
     super
     @bonus = if Math.random() < 0.1 then "+1 " else ""
-    @adjective = ["Broken", "Rusty", "Crude", "Simple", "Handy", "Quality", "Masterful", "Bejeweled", "Legendary", "Lost"][@fiddle(level)]
-    @noun = pick ["Sword", "Axe", "Dagger", "Knife", "Halberd", "Longsword", "Broadsword", "Short Sword"]
+    @adjective = ["Broken", "Rusty", "Crude", "Simple", "Handy", "Quality", "Masterful", "Bejewelled", "Legendary", "Lost"][@fiddle(level)]
+    @noun = pick ["Sword", "Axe", "Dagger", "Knife", "Halberd", "Longsword", "Broadsword", "Short Sword", "Staff", "Stick", "Crossbow", "Longbow", "Bow"]
     @qualifier = if Math.random() < 0.5
-      " of " + pick ["Disembowelling", "Productivity", "Luck", "the Beast", "the Abyss", "the Ages", "Harsh Language", "Biting", "Manners", "Farts", "Time"]
+      " of " + pick ["Disembowelling", "Productivity", "Luck", "the Beast", "the Abyss", "the Ages", "Harsh Language", "Biting", "Manners", "Farts", "Time", "Forgetfulness", "Clues", "Smiting", "Passive Aggression"]
     else
       ""
 
@@ -59,7 +59,7 @@ class Potion extends Consumable
     if @level < 5
       emoji.get("baby_bottle")
     else
-      emoji.get("wine")
+      emoji.get("wine_glass")
 
   description: ->
     size = if @level < 5 then "Small" else "Large"
@@ -69,11 +69,11 @@ class Treasure extends Item
   constructor: (level) ->
     super
     @descriptor = if Math.random() < 0.5
-      pick(["Small", "Large", "Mysterious", "Depleted", "Interesting", "Curious"]) + " "
+      pick(["Small", "Large", "Mysterious", "Depleted", "Interesting", "Curious", "Glowing", "Humming"]) + " "
     else
       ""
     @container = pick ["Box", "Jar", "Tube", "Bottle", "Assortment", "Pouch", "Purse", "Bag"]
-    @contents = pick ["Spiders", "Mysteries", "Shadows", "Gemstones", "Wood Shavings", "Teeth", "Regrets", "Sandwiches", "Goblin Pubes", "Buttons", "Boiled Sweets", "Coloured Sand", "Marbles", "Lint", "Dried Peas", "Bath Salts", "Bees", "Chickpeas", "Carved Figures", "Knucklebones", "Leather Scraps", "Rubies", "Emeralds", "Pretzels", "Crayons", "Herbs"]
+    @contents = pick ["Spiders", "Mysteries", "Shadows", "Gemstones", "Wood Shavings", "Teeth", "Regrets", "Sandwiches", "Goblin Pubes", "Buttons", "Boiled Sweets", "Coloured Sand", "Marbles", "Lint", "Dried Peas", "Bath Salts", "Bees", "Chickpeas", "Carved Figures", "Knucklebones", "Leather Scraps", "Rubies", "Emeralds", "Pretzels", "Crayons", "Herbs", "Ghosts", "Licorice Allsorts"]
 
   description: ->
     "#{@descriptor}#{@container} of #{@contents}"
