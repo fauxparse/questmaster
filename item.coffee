@@ -63,7 +63,7 @@ class Potion extends Consumable
 
   description: ->
     size = if @level < 5 then "Small" else "Large"
-    "#{size} health potion"
+    "#{size} Health Potion"
 
 class Treasure extends Item
   constructor: (level) ->
